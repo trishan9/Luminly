@@ -3,12 +3,6 @@ import Link from "next/link";
 import {
   MapPin,
   ArrowRight,
-  Code,
-  BarChart,
-  Search,
-  Palette,
-  Server,
-  Lightbulb,
 } from "lucide-react";
 import ContactForm from "@/components/contact-form";
 
@@ -234,7 +228,7 @@ export default function Home() {
 
       {/* About Us Section */}
       <section id="about" className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-16">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-4">About Us</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -242,7 +236,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-1/3">
               <div className="relative">
                 <div className="bg-gradient-to-br from-navy to-navy-light rounded-2xl h-[400px] w-full overflow-hidden shadow-xl">
