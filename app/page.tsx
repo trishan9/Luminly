@@ -556,7 +556,7 @@ export default function Home() {
                 <span className="text-white text-xl font-bold">Luminly</span>
               </div>
               <p className="text-gray-400 mb-6">
-                Empowering businesses with seamless tech solutions since 2020.
+                Empowering businesses with seamless tech solutions since 2024.
               </p>
 
               <div className="flex space-x-4">
@@ -834,9 +834,7 @@ export default function Home() {
                 </li>
               </ul>
 
-              <div className="mt-6 bg-navy/50 rounded-lg p-2 h-32">
-                <div className="h-full w-full bg-gray-200 rounded-md"></div>
-              </div>
+      
             </div>
           </div>
 
