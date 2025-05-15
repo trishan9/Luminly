@@ -5,6 +5,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import ContactForm from "@/components/contact-form";
+import PortfolioSection from "@/components/portfolio-section";
 
 export default function Home() {
   return (
@@ -289,88 +290,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4">Portfolio</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore our recent projects and success stories
-            </p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4">
-            {/* Left column */}
-            <div className="col-span-1 space-y-4">
-              <div className="portfolio-item bg-gray-100 aspect-[3/4] rounded-xl overflow-hidden shadow-md relative group">
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                  <div className="p-6 text-white">
-                    <h3 className="text-lg font-bold">E-commerce Platform</h3>
-                    <p className="text-sm text-gray-200">Web Development</p>
-                  </div>
-                </div>
-              </div>
-              <div className="portfolio-item bg-gray-100 aspect-[3/4] rounded-xl overflow-hidden shadow-md relative group">
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                  <div className="p-6 text-white">
-                    <h3 className="text-lg font-bold">Brand Identity</h3>
-                    <p className="text-sm text-gray-200">
-                      Graphics & Web Design
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Middle column */}
-            <div className="col-span-1 space-y-4">
-              <div className="portfolio-item bg-gray-100 aspect-square rounded-xl overflow-hidden shadow-md relative group">
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                  <div className="p-6 text-white">
-                    <h3 className="text-lg font-bold">Mobile App</h3>
-                    <p className="text-sm text-gray-200">App Development</p>
-                  </div>
-                </div>
-              </div>
-              <div className="portfolio-item bg-gray-100 aspect-square rounded-xl overflow-hidden shadow-md relative group">
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                  <div className="p-6 text-white">
-                    <h3 className="text-lg font-bold">SEO Campaign</h3>
-                    <p className="text-sm text-gray-200">Digital Marketing</p>
-                  </div>
-                </div>
-              </div>
-              <div className="portfolio-item bg-gray-100 aspect-square rounded-xl overflow-hidden shadow-md relative group">
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                  <div className="p-6 text-white">
-                    <h3 className="text-lg font-bold">Cloud Migration</h3>
-                    <p className="text-sm text-gray-200">Server Maintenance</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right column */}
-            <div className="col-span-1 space-y-4">
-              <div className="portfolio-item bg-gray-100 aspect-[3/4] rounded-xl overflow-hidden shadow-md relative group">
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                  <div className="p-6 text-white">
-                    <h3 className="text-lg font-bold">CRM System</h3>
-                    <p className="text-sm text-gray-200">IT Consulting</p>
-                  </div>
-                </div>
-              </div>
-              <div className="portfolio-item bg-gray-100 aspect-[3/4] rounded-xl overflow-hidden shadow-md relative group">
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                  <div className="p-6 text-white">
-                    <h3 className="text-lg font-bold">Analytics Dashboard</h3>
-                    <p className="text-sm text-gray-200">Web Development</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PortfolioSection />
 
       {/* Success Story Section */}
       <section id="success-stories" className="py-24 bg-gray-50">
