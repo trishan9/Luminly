@@ -1,12 +1,12 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Outfit, Inter } from "next/font/google"
+import { Montserrat, Inter } from "next/font/google"
 import "./globals.css"
 
 // Font setup
-const outfit = Outfit({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-montserrat",
   display: "swap",
 })
 
@@ -19,7 +19,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Luminly - Tech Solutions",
   description: "Empowering businesses with seamless tech solutions",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -28,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${outfit.variable} ${inter.variable}`}>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`scroll-smooth ${montserrat.variable} ${inter.variable}`}>
+      <body className={montserrat.className}>{children}</body>
     </html>
   )
 }
