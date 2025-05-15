@@ -9,17 +9,11 @@ import ContactForm from "@/components/contact-form";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      {/* Hero Section - Revamped */}
+      {/* Hero Section */}
       <section
         id="home"
         className="relative min-h-screen bg-gradient-hero text-white overflow-hidden"
       >
-        {/* Background elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/grid-pattern.png')] opacity-10"></div>
-          <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-navy to-transparent"></div>
-        </div>
-
         <div className="container mx-auto px-4 relative z-10">
           {/* Navigation */}
           <nav className="flex items-center justify-between py-6">
