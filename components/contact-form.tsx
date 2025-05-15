@@ -43,7 +43,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="firstName" className="block text-sm font-medium mb-1 text-gray-200">
+          <label htmlFor="firstName" className="block text-sm font-medium mb-1">
             First Name
           </label>
           <input
@@ -52,13 +52,13 @@ export default function ContactForm() {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-            className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 transition-all"
+            className="w-full p-3 bg-gray-100 border border-gray-200 rounded-sm"
             required
           />
         </div>
 
         <div>
-          <label htmlFor="lastName" className="block text-sm font-medium mb-1 text-gray-200">
+          <label htmlFor="lastName" className="block text-sm font-medium mb-1">
             Last Name
           </label>
           <input
@@ -67,7 +67,7 @@ export default function ContactForm() {
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 transition-all"
+            className="w-full p-3 bg-gray-100 border border-gray-200 rounded-sm focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
             required
           />
         </div>
@@ -75,7 +75,7 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-1 text-gray-200">
+          <label htmlFor="email" className="block text-sm font-medium mb-1">
             Your Email
           </label>
           <input
@@ -84,14 +84,14 @@ export default function ContactForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 transition-all"
-            placeholder="@gmail.com"
+            className="w-full p-3 bg-gray-100 border border-gray-200 rounded-sm"
+            placeholder="example@gmail.com"
             required
           />
         </div>
 
         <div>
-          <label htmlFor="contact" className="block text-sm font-medium mb-1 text-gray-200">
+          <label htmlFor="contact" className="block text-sm font-medium mb-1">
             Contact
           </label>
           <input
@@ -100,15 +100,15 @@ export default function ContactForm() {
             name="contact"
             value={formData.contact}
             onChange={handleChange}
-            className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 transition-all"
-            placeholder="Phone number"
+            className="w-full p-3 bg-gray-100 border border-gray-200 rounded-sm"
+            placeholder="+977-9841XXXX"
             required
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="company" className="block text-sm font-medium mb-1 text-gray-200">
+        <label htmlFor="company" className="block text-sm font-medium mb-1">
           Company Name
         </label>
         <input
@@ -117,13 +117,13 @@ export default function ContactForm() {
           name="company"
           value={formData.company}
           onChange={handleChange}
-          className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 transition-all"
+          className="w-full p-3 bg-gray-100 border border-gray-200 rounded-sm"
           required
         />
       </div>
 
       <div>
-        <p className="block text-sm font-medium mb-2 text-gray-200">Choose the Service You're Interested In</p>
+        <p className="block text-sm font-medium mb-2">Choose the Service You're Interested In</p>
         <div className="flex flex-wrap gap-2">
           {["Web Development", "Server Maintenance", "Graphics & Web", "IT Consulting", "Digital Marketing", "SEO"].map(
             (service) => (
@@ -133,8 +133,8 @@ export default function ContactForm() {
                 onClick={() => handleServiceToggle(service)}
                 className={`px-4 py-2 rounded-full text-sm transition-all ${
                   formData.services.includes(service)
-                    ? "bg-yellow-400 text-navy font-medium"
-                    : "bg-white/10 text-white hover:bg-white/20"
+                    ? "bg-gray-700 text-white"
+                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                 }`}
               >
                 {service}
@@ -145,7 +145,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-1 text-gray-200">
+        <label htmlFor="message" className="block text-sm font-medium mb-1">
           Message
         </label>
         <textarea
@@ -154,7 +154,7 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           rows={5}
-          className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 transition-all"
+          className="w-full p-3 bg-gray-100 border border-gray-200 rounded-sm"
           placeholder="Tell us how we can help..."
           required
         ></textarea>
@@ -163,7 +163,7 @@ export default function ContactForm() {
       <div className="text-center">
         <button
           type="submit"
-          className="bg-yellow-400 text-navy font-semibold px-8 py-3 rounded-full hover:bg-yellow-300 transition-colors shadow-lg shadow-yellow-400/20"
+          className="bg-yellow-400 text-gray-900 font-semibold px-8 py-3 rounded-full hover:bg-yellow-500 transition-colors"
         >
           Let's Connect
         </button>

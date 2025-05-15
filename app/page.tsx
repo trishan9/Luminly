@@ -497,35 +497,32 @@ export default function Home() {
       </section>
 
       {/* Contact Us Section */}
-      <section id="contact" className="py-24 bg-navy text-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row">
+      <section id="contact" className="py-24 bg-gradient-to-t from-[#2a2a7f] to-transparent bg-black bg-opacity-90 text-white">
+        <div className="container mx-auto px-12">
+          <div className="flex flex-col md:flex-row items-start">
             {/* Left Column - Contact Info */}
             <div className="w-full md:w-1/3 mb-12 md:mb-0">
               <h2 className="text-5xl font-bold mb-2">
                 Contact Us <span className="text-yellow-400">.</span>
               </h2>
-              <p className="mb-12 text-gray-300">
-                Let's Talk About Your Project
-              </p>
+              <p className="mb-12 text-white/90">Let's Talk.</p>
 
               <div className="border-l-4 border-yellow-400 pl-6 space-y-8">
                 <div>
-                  <p className="font-bold mb-2 text-gray-300">Visit Us :</p>
+                  <p className="font-bold mb-2 text-white/90">Visit Us :</p>
                   <p className="text-white">
                     Tej Bhawan, Uttar Dhoka Rd,
-                    <br />
                     Kathmandu 44600
                   </p>
                 </div>
 
                 <div>
-                  <p className="font-bold mb-2 text-gray-300">Chat With Us :</p>
+                  <p className="font-bold mb-2 text-white/90">Chat With Us :</p>
                   <p className="text-white">Luminly6@gmail.com</p>
                 </div>
 
                 <div>
-                  <p className="font-bold mb-2 text-gray-300">Call Us :</p>
+                  <p className="font-bold mb-2 text-white/90">Call Us :</p>
                   <p className="text-white">+977 9800000000</p>
                 </div>
               </div>
@@ -533,8 +530,19 @@ export default function Home() {
 
             {/* Right Column - Contact Form */}
             <div className="w-full md:w-2/3">
-              <div className="bg-white/5 backdrop-blur-sm p-8 rounded-xl relative border border-white/10">
-                <ContactForm />
+              <div className="relative">
+                {/* Yellow border frame */}
+                <div className="absolute -top-4 left-4 right-4 h-1 bg-yellow-400"></div>
+                <div className="absolute -bottom-4 left-4 right-4 h-1 bg-yellow-400"></div>
+                <div className="absolute top-0 -left-4 w-1 h-32 bg-yellow-400"></div>
+                <div className="absolute top-0 -right-4 w-1 h-32 bg-yellow-400"></div>
+                <div className="absolute bottom-0 -left-4 w-1 h-32 bg-yellow-400"></div>
+                <div className="absolute bottom-0 -right-4 w-1 h-32 bg-yellow-400"></div>
+
+                {/* Form */}
+                <div className="bg-white p-8 rounded-sm text-gray-800">
+                  <ContactForm />
+                </div>
               </div>
             </div>
           </div>

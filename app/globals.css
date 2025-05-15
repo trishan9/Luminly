@@ -72,6 +72,10 @@ h6 {
   transform: scale(1.05);
 }
 
+.bg-contact-gradient {
+  background: radial-gradient(circle, #111 0%, #2a2a7f 100%);;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
