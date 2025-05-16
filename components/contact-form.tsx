@@ -45,9 +45,9 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitStatus({ type: null, message: "" })
 
     try {
+      setSubmitStatus({ type: null, message: "" })
       setIsSubmitting(true)
       const result = await sendEmail(formData)
 
