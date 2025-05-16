@@ -2,8 +2,9 @@
 
 import type React from "react"
 import { useState } from "react"
-import { sendEmail } from "@/hooks/email"
 import { Loader2 } from "lucide-react"
+import { sendEmail } from "@/lib/email"
+import { cn } from "@/lib/utils"
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -44,10 +45,10 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
     setSubmitStatus({ type: null, message: "" })
 
     try {
+      setIsSubmitting(true)
       const result = await sendEmail(formData)
 
       if (result.success) {
@@ -55,7 +56,6 @@ export default function ContactForm() {
           type: "success",
           message: "Thank you! Your message has been sent successfully.",
         })
-        // Reset form
         setFormData({
           firstName: "",
           lastName: "",
@@ -86,9 +86,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       {submitStatus.type && (
         <div
-          className={`p-4 rounded-md ${
-            submitStatus.type === "success" ? "bg-green-50 text-green-800" : "bg-red-50 text-red-800"
-          }`}
+          className={cn("p-4 rounded-md", submitStatus.type === "success" ? "bg-green-50 text-green-800" : "bg-red-50 text-red-800")}
         >
           {submitStatus.message}
         </div>
