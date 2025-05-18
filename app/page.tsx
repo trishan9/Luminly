@@ -1,23 +1,23 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
-import {
-  MapPin,
-  ArrowRight,
-} from "lucide-react";
+import { MapPin, ArrowRight, Menu, X } from 'lucide-react';
+import { useState } from "react";
 import ContactForm from "@/components/contact-form";
 import PortfolioSection from "@/components/portfolio-section";
 import MapEmbed from "@/components/map-embed";
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
       <section
         id="home"
         className="relative min-h-screen bg-gradient-hero text-white overflow-hidden"
       >
         <div className="container mx-auto px-4 relative z-10">
-          {/* Navigation */}
           <nav className="flex items-center justify-between py-6">
             <div className="flex items-center">
               <span className="text-yellow-400 text-3xl font-bold mr-2">
@@ -29,10 +29,12 @@ export default function Home() {
                   className="inline-block"
                 />
               </span>
+
               <span className="text-white text-xl font-bold tracking-wide">
                 Luminly
               </span>
             </div>
+            
             <div className="hidden md:flex space-x-10">
               <Link
                 href="#home"
@@ -40,24 +42,28 @@ export default function Home() {
               >
                 Home
               </Link>
+
               <Link
                 href="#portfolio"
                 className="text-white hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider font-medium"
               >
                 Portfolio
               </Link>
+
               <Link
                 href="#about"
                 className="text-white hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider font-medium"
               >
                 About Us
               </Link>
+
               <Link
                 href="#services"
                 className="text-white hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider font-medium"
               >
                 Services
               </Link>
+
               <Link
                 href="#contact"
                 className="text-white hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider font-medium"
@@ -65,26 +71,86 @@ export default function Home() {
                 Contact Us
               </Link>
             </div>
+            
+            <button 
+              className="md:hidden text-white focus:outline-none"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
           </nav>
 
-          {/* Hero Content */}
+          {mobileMenuOpen && (
+            <div className="md:hidden bg-navy-dark bg-opacity-95 absolute top-20 left-0 right-0 z-50 py-4 px-4 rounded-b-lg shadow-lg border-t border-yellow-400/20">
+              <div className="flex flex-col space-y-4">
+                <Link
+                  href="#home"
+                  className="text-white hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider font-medium py-2 px-4 rounded-md hover:bg-navy-light"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+
+                <Link
+                  href="#portfolio"
+                  className="text-white hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider font-medium py-2 px-4 rounded-md hover:bg-navy-light"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Portfolio
+                </Link>
+
+                <Link
+                  href="#about"
+                  className="text-white hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider font-medium py-2 px-4 rounded-md hover:bg-navy-light"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About Us
+                </Link>
+
+                <Link
+                  href="#services"
+                  className="text-white hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider font-medium py-2 px-4 rounded-md hover:bg-navy-light"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Services
+                </Link>
+
+                <Link
+                  href="#contact"
+                  className="text-white hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider font-medium py-2 px-4 rounded-md hover:bg-navy-light"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+          )}
+
           <div className="flex flex-col md:flex-row items-center justify-center py-20 md:py-64">
             <div className="w-full md:w-1/2 mb-12 md:mb-0 animate-fadeIn flex justify-center items-center flex-col">
-              <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6 text-center flex gap-6">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-center flex flex-col sm:flex-row gap-2 sm:gap-6">
                 THE <span className="text-gradient">REVOLUTION</span>
               </h1>
-              <p className="text-xl md:text-2xl mb-10 text-gray-300 max-w-xl">
+
+              <p className="text-lg sm:text-xl md:text-2xl mb-10 text-gray-300 max-w-xl text-center px-4 md:px-2 lg:px-4">
                 Empowering businesses with seamless tech solutions that drive
                 growth and innovation.
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="#services"
-                  className="inline-flex items-center justify-center bg-white text-navy font-semibold px-8 py-3 rounded-full hover:bg-gray-200 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-navy font-semibold px-8 md:px-4 lg:px-8 py-3 rounded-full hover:bg-gray-200 transition-colors"
                 >
                   Discover More
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
+
                 <Link
                   href="#contact"
                   className="inline-flex items-center justify-center bg-transparent text-white border-2 border-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition-colors"
@@ -97,15 +163,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
       <section id="services" className="py-24 bg-white">
-        <div className="container mx-auto px-16">
-          <h2 className="text-5xl font-bold text-center mb-16 text-navy-dark">
+        <div className="container mx-auto px-4 md:px-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 text-navy-dark">
             Our Services
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-            {/* Service 1 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-16">
             <div className="service-item">
               <div className="mb-4 overflow-hidden">
                 <Image
@@ -116,7 +180,9 @@ export default function Home() {
                   className="w-full h-64 object-cover"
                 />
               </div>
+
               <h3 className="text-xl font-bold mb-2">Web Development</h3>
+
               <p className="text-gray-600">
                 The explanations provided are clear and concise. The responses
                 accurately generated UI/UX content for IT consulting website
@@ -124,7 +190,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Service 2 */}
             <div className="service-item">
               <div className="mb-4 overflow-hidden">
                 <Image
@@ -135,7 +200,9 @@ export default function Home() {
                   className="w-full h-64 object-cover"
                 />
               </div>
+
               <h3 className="text-xl font-bold mb-2">Digital Marketing</h3>
+
               <p className="text-gray-600">
                 The explanations provided are clear and concise. The responses
                 accurately generated UI/UX content for IT consulting website
@@ -143,7 +210,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Service 3 */}
             <div className="service-item">
               <div className="mb-4 overflow-hidden">
                 <Image
@@ -155,6 +221,7 @@ export default function Home() {
                 />
               </div>
               <h3 className="text-xl font-bold mb-2">SEO</h3>
+
               <p className="text-gray-600">
                 The explanations provided are clear and concise. The responses
                 accurately generated UI/UX content for IT consulting website
@@ -162,7 +229,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Service 4 */}
             <div className="service-item">
               <div className="mb-4 overflow-hidden">
                 <Image
@@ -173,7 +239,9 @@ export default function Home() {
                   className="w-full h-64 object-cover"
                 />
               </div>
+
               <h3 className="text-xl font-bold mb-2">Graphics & Web Design</h3>
+
               <p className="text-gray-600">
                 The explanations provided are clear and concise. The responses
                 accurately generated UI/UX content for IT consulting website
@@ -181,7 +249,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Service 5 */}
             <div className="service-item">
               <div className="mb-4 overflow-hidden">
                 <Image
@@ -193,6 +260,7 @@ export default function Home() {
                 />
               </div>
               <h3 className="text-xl font-bold mb-2">Server Maintenance</h3>
+
               <p className="text-gray-600">
                 The explanations provided are clear and concise. The responses
                 accurately generated UI/UX content for IT consulting website
@@ -200,7 +268,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Service 6 */}
             <div className="service-item">
               <div className="mb-4 overflow-hidden">
                 <Image
@@ -211,7 +278,9 @@ export default function Home() {
                   className="w-full h-64 object-cover"
                 />
               </div>
+
               <h3 className="text-xl font-bold mb-2">IT Consulting</h3>
+
               <p className="text-gray-600">
                 The explanations provided are clear and concise. The responses
                 accurately generated UI/UX content for IT consulting website
@@ -222,21 +291,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Us Section */}
       <section id="about" className="py-24 bg-gray-50">
-        <div className="container mx-auto px-16">
+        <div className="container mx-auto px-4 md:px-16">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4">About Us</h2>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">About Us</h2>
+
             <p className="text-gray-600 max-w-2xl mx-auto">
               Learn more about our mission and values
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-16 items-center">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
             <div className="w-full md:w-1/3">
               <div className="relative">
-                <div className="bg-gradient-to-br from-navy to-navy-light rounded-2xl h-[400px] w-full overflow-hidden shadow-xl">
+                <div className="bg-gradient-to-br from-navy to-navy-light rounded-2xl h-[300px] md:h-[400px] w-full overflow-hidden shadow-xl">
                   <div className="absolute inset-0 bg-[url('/images/circuit-pattern.png')] opacity-10 mix-blend-overlay"></div>
+
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-white text-center p-8">
                       <div className="text-yellow-400 text-5xl font-bold mb-4">
@@ -248,7 +319,9 @@ export default function Home() {
                           className="inline-block"
                         />
                       </div>
+
                       <h3 className="text-2xl font-bold mb-2">Luminly</h3>
+
                       <p className="text-gray-300">Established 2024</p>
                     </div>
                   </div>
@@ -264,6 +337,7 @@ export default function Home() {
                 drive growth, enhance efficiency, and empower digital
                 transformation.
               </p>
+
               <p className="text-gray-800 mb-6 text-lg">
                 Our team of tech enthusiasts, problem solvers, and creative
                 thinkers is dedicated to delivering seamless solutions, from
@@ -272,10 +346,12 @@ export default function Home() {
                 understanding of your needs, ensuring every solution is tailored
                 for success.
               </p>
+
               <p className="text-gray-800 text-lg">
                 Join us on a journey of innovation, where technology meets
                 possibility. Let's build the future together.
               </p>
+
               <div className="mt-8">
                 <Link
                   href="#contact"
@@ -290,14 +366,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Section */}
       <PortfolioSection />
 
-      {/* Success Story Section */}
       <section id="success-stories" className="py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4">Success Story</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Success Story</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               What our Clients Say
             </p>
@@ -314,12 +388,14 @@ export default function Home() {
                   <p className="text-sm text-gray-500">CEO, TechStart</p>
                 </div>
               </div>
+
               <p className="text-gray-700">
                 "Luminly transformed our digital presence completely. Their team
                 delivered a website that not only looks great but also performs
                 exceptionally well. The SEO improvements have increased our
                 organic traffic by 150%."
               </p>
+
               <div className="mt-4 flex">
                 <div className="flex text-yellow-400">
                   {[...Array(5)].map((_, i) => (
@@ -343,8 +419,10 @@ export default function Home() {
                 <div className="w-12 h-12 bg-navy rounded-full flex items-center justify-center text-white font-bold text-xl">
                   S
                 </div>
+
                 <div className="ml-4">
                   <h3 className="font-bold">Sarah Williams</h3>
+
                   <p className="text-sm text-gray-500">
                     Marketing Director, GrowthHub
                   </p>
@@ -381,6 +459,7 @@ export default function Home() {
                 </div>
                 <div className="ml-4">
                   <h3 className="font-bold">Michael Chen</h3>
+
                   <p className="text-sm text-gray-500">CTO, InnovateTech</p>
                 </div>
               </div>
@@ -411,20 +490,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Us Section */}
       <section id="contact" className="py-24 bg-gradient-to-t from-[#2a2a7f] to-transparent bg-black bg-opacity-90 text-white">
-        <div className="container mx-auto px-12">
-          <div className="flex flex-col md:flex-row items-start">
-            {/* Left Column - Contact Info */}
-            <div className="w-full md:w-1/3 mb-12 md:mb-0">
-              <h2 className="text-5xl font-bold mb-2">
+        <div className="container mx-auto px-4 md:px-12">
+          <div className="flex flex-col md:flex-row items-start gap-8">
+            <div className="w-full md:w-1/3 mb-8 md:mb-0">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
                 Contact Us <span className="text-yellow-400">.</span>
               </h2>
+
               <p className="mb-12 text-white/90">Let's Talk.</p>
 
               <div className="border-l-4 border-yellow-400 pl-6 space-y-8">
                 <div>
                   <p className="font-bold mb-2 text-white/90">Visit Us :</p>
+
                   <p className="text-white">
                     Tej Bhawan, Uttar Dhoka Rd,
                     Kathmandu 44600
@@ -433,28 +512,32 @@ export default function Home() {
 
                 <div>
                   <p className="font-bold mb-2 text-white/90">Chat With Us :</p>
+
                   <p className="text-white">Luminly6@gmail.com</p>
                 </div>
 
                 <div>
                   <p className="font-bold mb-2 text-white/90">Call Us :</p>
-                  <p className="text-white">+977 9800000000</p>
+
+                  <p className="text-white">+977 9742458587 +977 9851323567</p>
                 </div>
               </div>
             </div>
 
-            {/* Right Column - Contact Form */}
             <div className="w-full md:w-2/3">
               <div className="relative">
-                {/* Yellow border frame */}
                 <div className="absolute -top-4 left-4 right-4 h-1 bg-yellow-400"></div>
+
                 <div className="absolute -bottom-4 left-4 right-4 h-1 bg-yellow-400"></div>
+
                 <div className="absolute top-0 -left-4 w-1 h-32 bg-yellow-400"></div>
+
                 <div className="absolute top-0 -right-4 w-1 h-32 bg-yellow-400"></div>
+
                 <div className="absolute bottom-0 -left-4 w-1 h-32 bg-yellow-400"></div>
+
                 <div className="absolute bottom-0 -right-4 w-1 h-32 bg-yellow-400"></div>
 
-                {/* Form */}
                 <div className="bg-white p-8 rounded-sm text-gray-800">
                   <ContactForm />
                 </div>
@@ -464,11 +547,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
      <footer className="bg-navy-dark text-white py-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo and Social */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-6">
               <span className="text-yellow-400 text-3xl font-bold mr-2">
@@ -476,6 +557,7 @@ export default function Home() {
               </span>
               <span className="text-white text-xl font-bold">Luminly</span>
             </div>
+
             <p className="text-gray-400 mb-6">Empowering businesses with seamless tech solutions since 2020.</p>
 
             <div className="flex space-x-4">
@@ -494,6 +576,7 @@ export default function Home() {
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                 </svg>
               </a>
+
               <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -511,6 +594,7 @@ export default function Home() {
                   <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                 </svg>
               </a>
+
               <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -526,6 +610,7 @@ export default function Home() {
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
               </a>
+
               <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -546,45 +631,52 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-200">Quick Links</h3>
+
             <ul className="space-y-2 text-gray-400">
               <li>
                 <Link href="#home" className="hover:text-yellow-400 transition-colors">
                   Home
                 </Link>
               </li>
+
               <li>
                 <Link href="#about" className="hover:text-yellow-400 transition-colors">
                   About Us
                 </Link>
               </li>
+
               <li>
                 <Link href="#services" className="hover:text-yellow-400 transition-colors">
                   Services
                 </Link>
               </li>
+
               <li>
                 <Link href="#portfolio" className="hover:text-yellow-400 transition-colors">
                   Case Studies
                 </Link>
               </li>
+
               <li>
                 <Link href="#" className="hover:text-yellow-400 transition-colors">
                   Blog
                 </Link>
               </li>
+
               <li>
                 <Link href="#contact" className="hover:text-yellow-400 transition-colors">
                   Contact Us
                 </Link>
               </li>
+
               <li>
                 <Link href="#" className="hover:text-yellow-400 transition-colors">
                   Privacy Policy
                 </Link>
               </li>
+
               <li>
                 <Link href="#" className="hover:text-yellow-400 transition-colors">
                   Terms of Service
@@ -593,35 +685,40 @@ export default function Home() {
             </ul>
           </div>
 
-          {/* Services Overview */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-200">Services Overview</h3>
+
             <ul className="space-y-2 text-gray-400">
               <li>
                 <Link href="#" className="hover:text-yellow-400 transition-colors">
                   IT Consulting
                 </Link>
               </li>
+
               <li>
                 <Link href="#" className="hover:text-yellow-400 transition-colors">
                   Web Development
                 </Link>
               </li>
+
               <li>
                 <Link href="#" className="hover:text-yellow-400 transition-colors">
                   Graphics & Web Design
                 </Link>
               </li>
+
               <li>
                 <Link href="#" className="hover:text-yellow-400 transition-colors">
                   SEO
                 </Link>
               </li>
+
               <li>
                 <Link href="#" className="hover:text-yellow-400 transition-colors">
                   Digital Marketing
                 </Link>
               </li>
+
               <li>
                 <Link href="#" className="hover:text-yellow-400 transition-colors">
                   Server Maintenance
@@ -630,14 +727,15 @@ export default function Home() {
             </ul>
           </div>
 
-          {/* Contact Information */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-200">Contact Information</h3>
+
             <ul className="space-y-2 text-gray-400">
               <li className="flex items-start">
                 <MapPin className="mr-2 h-5 w-5 text-yellow-400 mt-0.5" />
                 <span>Tej Bhawan, Uttar Dhoka Rd, Kathmandu 44600</span>
               </li>
+
               <li className="flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -653,8 +751,9 @@ export default function Home() {
                 >
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <span>+977 9800000000</span>
+                <span>+977 9742458587 +977 9851323567</span>
               </li>
+
               <li className="flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -673,6 +772,7 @@ export default function Home() {
                 </svg>
                 <span>Luminly6@gmail.com</span>
               </li>
+              
               <li className="flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -693,7 +793,6 @@ export default function Home() {
               </li>
             </ul>
 
-            {/* Google Maps Embed */}
             <div className="mt-6">
               <MapEmbed
                 height="160px"
